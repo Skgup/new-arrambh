@@ -9,33 +9,16 @@ const HeroSection = () => {
       title: "Explore World-Class Online Courses",
       subtitle: "Learn at your pace from the comfort of your home.",
       image: "/images/Student with smile.jpg",
-      // buttons: ["Online MBA", "Online MCA", "Online BBA", "Online BCA", "Online BA", "& More"],
     },
     {
       title: "Hear From Our Success Stories",
       subtitle: "Discover how our students achieved their dreams.",
       image: "/images/Upgrade your life.jpg",
-      // buttons: [
-      //   "Artificial Intelligence",
-      //   "Data Science",
-      //   "BFSI",
-      //   "IT & Fintech",
-      //   "Business Analytics",
-      //   "Cybersecurity",
-      // ],
     },
     {
       title: "Recognized Affiliations & Certifications",
       subtitle: "Boost your career with globally recognized credentials.",
       image: "/images/University STudents Degree.jpg",
-      // buttons: [
-      //   "Cloud Computing",
-      //   "Digital Marketing",
-      //   "Software Development",
-      //   "Project Management",
-      //   "Entrepreneurship",
-      //   "& More",
-      // ],
     },
   ];
 
@@ -45,6 +28,10 @@ const HeroSection = () => {
 
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
   };
 
   useEffect(() => {
@@ -58,7 +45,7 @@ const HeroSection = () => {
     <div className="relative text-white overflow-hidden h-[400px] lg:h-[600px]">
       {/* Slider Wrapper */}
       <div
-        className="flex transition-transform duration-700 ease-in-out lg:h-[600px] h-[400px] "
+        className="flex transition-transform duration-700 ease-in-out lg:h-[600px] h-[400px]"
         style={{
           transform: `translateX(-${currentSlide * 100}%)`,
         }}
@@ -76,35 +63,39 @@ const HeroSection = () => {
               className="w-full h-full object-cover"
             />
             {/* Slide Content */}
-            <div className="absolute inset-0  text-[#85132c]  flex  flex-col space-x-4 justify-evenly text-left p-6 md:p-10">
-              {/* Title and Subtitle (Above Buttons) */}
-              <div className="mb-6 px-6 lg:px-[9%] md:[8%]">
-                <h1 className="text-2xl md:text-4xl font-bold  ">{slide.title}</h1>
-                <p className="text-base md:text-lg">{slide.subtitle}</p> 
-             
+            <div className="absolute inset-0 text-[#85132c] flex flex-col justify-evenly text-left p-6 md:p-10">
+              <div className="mb-6 px-6 lg:px-[9%]">
+                <h1 className="text-2xl md:text-4xl font-bold">{slide.title}</h1>
+                <p className="text-base md:text-lg">{slide.subtitle}</p>
               </div>
-         
-            
-              
             </div>
-            <div className="relative bottom-20 lg:bottom-56  z-10 flex flex-row space-x-4  md:left-10  px-6 lg:px-[9%] md:[8%]">
-        <button
-          className="bg-white text-sm text-[#85132c]  hover:text-white px-4 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto"
-        >
-          Explore Courses
-        </button>
-        <button
-          className="bg-[#85132c]  text-sm text-white px-4 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto"
-        >
-          Enroll Now
-        </button>
-      </div>
+
+            {/* Buttons */}
+            <div className="relative bottom-20 lg:bottom-56 z-10 flex flex-row space-x-4 md:left-10 px-6 lg:px-[9%]">
+              <button className="bg-white text-sm text-[#85132c] hover:text-white px-4 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto">
+                Explore Courses
+              </button>
+              <button className="bg-[#85132c] text-sm text-white px-4 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto">
+                Enroll Now
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
-    
-      
+      {/* Pagination Dots */}
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`w-3 h-3 rounded-full ${
+              currentSlide === index ? "bg-[#85132c]" : "bg-gray-300"
+            }`}
+            aria-label={`Slide ${index + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Navigation Buttons */}
       <button
@@ -114,7 +105,7 @@ const HeroSection = () => {
       >
         <i className="fas fa-chevron-left"></i>
       </button>
-      <FloatingEnrollButton/>
+      <FloatingEnrollButton />
       <button
         onClick={handleNext}
         className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-80 z-20"
