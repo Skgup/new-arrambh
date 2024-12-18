@@ -55,10 +55,10 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative text-white h-screen overflow-hidden">
+    <div className="relative text-white overflow-hidden h-[400px] lg:h-[600px]">
       {/* Slider Wrapper */}
       <div
-        className="flex transition-transform duration-700 ease-in-out h-full"
+        className="flex transition-transform duration-700 ease-in-out lg:h-[600px] h-[400px] "
         style={{
           transform: `translateX(-${currentSlide * 100}%)`,
         }}
@@ -87,14 +87,14 @@ const HeroSection = () => {
             
               
             </div>
-            <div className="relative bottom-56  z-10 flex flex-row space-x-4  md:left-10  px-6 lg:px-[9%] md:[8%]">
+            <div className="relative bottom-20 lg:bottom-56  z-10 flex flex-row space-x-4  md:left-10  px-6 lg:px-[9%] md:[8%]">
         <button
-          className="bg-white text-sm text-[#85132c]  hover:text-white px-4 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto"
+          className="bg-white text-sm text-[#85132c]  hover:text-white px-1 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto"
         >
           Explore Courses
         </button>
         <button
-          className="bg-[#85132c]  text-sm text-white px-4 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto"
+          className="bg-[#85132c]  text-sm text-white px-1 py-3 rounded-md shadow-md font-bold hover:bg-[#85132c] transition duration-300 w-full md:w-auto"
         >
           Enroll Now
         </button>
