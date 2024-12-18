@@ -5,7 +5,7 @@ import HighlyDemandedCoursesSlider from "../HighlyDemanding";
 import EnrollmentForm from "../../Home/Enroll";
 const RightSideBar = () => {
   return (
-    <div className="flex flex-col  lg:pl-2 ">
+    <div className="flex flex-col  pl-0 lg:pl-2 ">
       {/* enroll form */}
       <div className="flex items-center justify-center min-h-screen ">
      <EnrollmentForm/>
