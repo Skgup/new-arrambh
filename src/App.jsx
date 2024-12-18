@@ -35,11 +35,13 @@ import ProfileSettings from './components/StudentDashboard/ProfileSettings';
 import HelpSupport from './components/StudentDashboard/HelpSupport';
 import MainLayout from "./components/StudentDashboard/Mainlayout";
 import ScrollToTop from "./components/Top";
+import ScrollToTop2 from "./components/Top2";
 function App() {
   const user = useContext(AuthContext); 
  
   return (
     <Router>
+      <ScrollToTop2/>
       <AuthProvider>
         <TopBar />
         <NavBar />
