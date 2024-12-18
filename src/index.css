@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 820px) {
+    .hide-on-desktop {
+      display: none;
+    }
+  }
+  
