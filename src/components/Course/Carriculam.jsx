@@ -2,14 +2,9 @@ import React, { useState } from "react";
 
 const Curriculum = () => {
   const [activeSemester, setActiveSemester] = useState(null);
-  const [activeSubSection, setActiveSubSection] = useState(null);
 
   const toggleSemester = (index) => {
     setActiveSemester(activeSemester === index ? null : index);
-  };
-
-  const toggleSubSection = (index) => {
-    setActiveSubSection(activeSubSection === index ? null : index);
   };
 
   const semesters = [
@@ -72,40 +67,29 @@ const Curriculum = () => {
                   {semester.subsections.map((subsection, subIndex) => (
                     <div
                       key={subIndex}
-                      className="bg-blue-50 border border-blue-200 rounded my-2"
+                      className="bg-blue-50 border border-blue-200 rounded my-2 p-4 flex justify-between items-center"
                     >
-                      <div
-                        className="p-4 flex justify-between items-center cursor-pointer"
-                        onClick={() => toggleSubSection(subIndex)}
-                      >
-                        <span className="font-semibold text-blue-900">{subsection.name}</span>
-                        <span className="text-blue-900 font-bold">
-                          {activeSubSection === subIndex ? "-" : "+"}
-                        </span>
-                      </div>
+                      {/* Subsection Title */}
+                      <span className="font-semibold text-blue-900">{subsection.name}</span>
 
-                      {activeSubSection === subIndex && (
-                        <div className="p-4 text-gray-700">
-                          {/* Display resource buttons if available */}
-                          <div className="flex space-x-2">
-                            {subsection.resources.pdf && (
-                              <button className="bg-green-600 text-white px-4 py-2 rounded">
-                                PDF
-                              </button>
-                            )}
-                            {subsection.resources.ppt && (
-                              <button className="bg-blue-600 text-white px-4 py-2 rounded">
-                                PPT
-                              </button>
-                            )}
-                            {subsection.resources.doc && (
-                              <button className="bg-gray-600 text-white px-4 py-2 rounded">
-                                DOC
-                              </button>
-                            )}
-                          </div>
-                        </div>
-                      )}
+                      {/* Resource Buttons Inline */}
+                      <div className="flex items-center space-x-2">
+                        {subsection.resources.pdf && (
+                          <button className="bg-green-600 text-white px-4 py-2 rounded">
+                            PDF
+                          </button>
+                        )}
+                        {subsection.resources.ppt && (
+                          <button className="bg-blue-600 text-white px-4 py-2 rounded">
+                            PPT
+                          </button>
+                        )}
+                        {subsection.resources.doc && (
+                          <button className="bg-gray-600 text-white px-4 py-2 rounded">
+                            DOC
+                          </button>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -119,4 +103,3 @@ const Curriculum = () => {
 };
 
 export default Curriculum;
-  
