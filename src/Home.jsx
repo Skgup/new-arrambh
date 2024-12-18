@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSection from './components/Home/HeroSection';
 import HighlightsSection from './components/Home/HighlightsSection';
 import KeyFeatures from './components/Home/KeyFeatures';
-import CourseGrid from './components/Home/Course';
+import CourseGrid from './components/Home/course';
 // import ContactPage from './components/Contact/ContacUs';
 import MainContainer from './components/Home/MainContainer';
 import FloatingEnrollButton from './components/Home/FliationgButton';
